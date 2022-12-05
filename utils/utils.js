@@ -3,8 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 export const readInput = async (day) => {
   try {
     const filePath = new URL(`./inputs/day${day}.txt`, import.meta.url);
-    const contents = await readFile(filePath, { encoding: "utf8" });
-    return contents.split(/\n{2,}/g).map((value) => value.split("\n"));
+    return await readFile(filePath, { encoding: "utf8" });
   } catch (err) {
     console.error(err.message);
   }
